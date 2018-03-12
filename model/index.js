@@ -20,3 +20,11 @@ const manufacturerSchema = Schema({
   id: ObjectId,
   name: String,
 });
+
+// declaramos nossas models
+const Product      = model('Product', productSchema);
+const Manufacturer = model('Manufacturer', manufacturerSchema)
+
+// e exportamos nossas models para a nossa aplicacao
+// necessario para o mongoose gerar nossas tabelas.
+module.exports = {Product, Manufacturer};

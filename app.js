@@ -6,8 +6,8 @@ var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 // Require routes
-// They are yet to be created
-var index = require('./routes/index');
+const index = require('./routes/index');
+const users = require('./routes/users');
 const api = require('./routes/api/index');
 
 // Setup an express app
