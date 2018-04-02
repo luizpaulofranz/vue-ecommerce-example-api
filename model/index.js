@@ -8,7 +8,10 @@ const Schema   = mongoose.Schema,
 // o tipo ObjectId serve para gerar um id unico para cara registro
 const productSchema = Schema({
   id: ObjectId,
-  name: String,
+  name: {
+    type: String,
+    require: true
+  },
   image: String,
   price: Number,
   description: String,
@@ -22,9 +25,14 @@ const manufacturerSchema = Schema({
 });
 
 // declaramos nossas models
+// as collections no mongo sao criadas com base no nome da Model
+// em minusculo e no PLURAL, ex: manufacturers, products
 const Product      = model('Product', productSchema);
 const Manufacturer = model('Manufacturer', manufacturerSchema)
 
+// a declaracao do schema/model poderia ser junto, dessa forma:
+//const Manufacturer = mongoose.model('manufacturer', {name: {type: String,require: true}})
+
 // e exportamos nossas models para a nossa aplicacao
-// necessario para o mongoose gerar nossas tabelas.
+// necessario para o mongoose gerar nossas collections.
 module.exports = {Product, Manufacturer};

@@ -26,4 +26,9 @@ Express will manage our rotes, requests and responses.
 ### Database Connections
 You must have a Mongo database locally or hosted (like mlab for example), and the database configuration is setted on file **app.js**, with `mongoose.connect` statement.
 
-This project was created following this [scotch.io course](https://scotch.io/courses/build-an-online-shop-with-vue).
+Here we prefer to use a local Mongo installation using docker, on root of this application run:
+``` bash
+docker run --name mongovuestore -dit -p 27017:27017 -v mongoDocker:/data/db mongo
+```
+
+This project was created based on this [scotch.io course](https://scotch.io/courses/build-an-online-shop-with-vue).
