@@ -4,6 +4,11 @@ const Schema   = mongoose.Schema,
       model    = mongoose.model.bind(mongoose),
       ObjectId = mongoose.Schema.Types.ObjectId;
 
+const manufacturerSchema = Schema({
+  id: ObjectId,
+  name: String,
+});
+
 // um schema recebe um objeto que descreve a esrutura e tipo da tabela
 // o tipo ObjectId serve para gerar um id unico para cara registro
 const productSchema = Schema({
@@ -16,12 +21,10 @@ const productSchema = Schema({
   price: Number,
   description: String,
   // Relacionamento um para muitos
+  // o id estrangeiro deve ser do tipo ObjectId, preste atencao na hora de inserir
+  // caso insira apenas uma string, o mongoose nao vai conseguir popular esse campo 
+  // com a funcao populate, que podemos ver na controller de products
   manufacturer: {type: ObjectId, ref: 'Manufacturer'}
-});
-
-const manufacturerSchema = Schema({
-  id: ObjectId,
-  name: String,
 });
 
 // declaramos nossas models

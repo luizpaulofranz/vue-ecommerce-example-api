@@ -20,7 +20,7 @@ node app.js
 ```
 
 ## Explanations
-For this example, we use an hosted MongoDB, in [https://mlab.com](https://mlab.com).
+For this example, we use MongoDB, one good hosted option is [https://mlab.com](https://mlab.com).
 To manage Mongo, we use mongoose dependency on our project.
 Express will manage our rotes, requests and responses.
 ### Database Connections
@@ -30,5 +30,6 @@ Here we prefer to use a local Mongo installation using docker, on root of this a
 ``` bash
 docker run --name mongovuestore -dit -p 27017:27017 -v mongoDocker:/data/db mongo
 ```
+The Json files inside folder `mongoDocker` contains sample data for this API.
 
 This project was created based on this [scotch.io course](https://scotch.io/courses/build-an-online-shop-with-vue).
